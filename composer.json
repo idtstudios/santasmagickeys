@@ -1,0 +1,14 @@
+{
+    "name": "santasmagickeys/santasmagickeys",
+    "type": "project",
+    "require": {
+    "php": ">=5.5.0",
+    "ext-mbstring": "*",
+    "ext-mysqli": "*",
+    "ext-xml": "*",
+    "ext-pcre": "*",
+    "ext-json": "*",
+    "phpseclib/phpseclib": "^2.0",
+    "google/recaptcha": "^1.1"
+}
+}

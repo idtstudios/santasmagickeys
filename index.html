@@ -1,0 +1,324 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<title>Santa's Magic Key</title>
+
+</head>
+
+<body>
+
+<style>
+body { background-color: #444444; margin: 0 0 0 0; padding: 0 0 0 0; } p.text {font-family: "Times New Roman", Times, serif;; font-size:13px; line-height:20px; } ul.list li {font-family:Verdana, Geneva, sans-serif; font-size:13px; line-height:20px; } a:link { color: #800000; text-decoration:none;} a:hover { color:#900000; text-decoration:none; } a:visited { color:#800000; text-decoration:none; } a img { border: none; } .options a { color: #ffffff; text-decoration:none; font-style:italic; } .options { color: #ffffff; font-family:Verdana, Geneva, sans-serif; font-size:11px; line-height:16px;}
+
+* {box-sizing:border-box}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.slide-text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+.buy {
+	box-shadow:inset 0px 1px 0px 0px #f5978e;
+	background:linear-gradient(to bottom, #f24437 5%, #990000 100%);
+	background-color:#f24437;
+	border-radius:6px;
+	border:1px solid #d02718;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:24px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #810e05;
+}
+.buy:hover {
+	background:linear-gradient(to bottom, #990000 5%, #f24437 100%);
+	background-color:#990000;
+}
+.buy:active {
+	position:relative;
+	top:1px;
+}
+
+
+
+</style>
+<!--Outer Wraper -->
+
+<table border="0" width="100%" style="border-width: 0px;">
+	<tr>
+	<!--change background color here and also in body style above-->
+	<td style="border-style: none; border-width: 0px;" align="center" bgcolor="#444444">
+<!--header-->
+<table width="900" border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td width="25"><img src="spacer.gif" width="25" alt="" style="display:block;" /> </td>
+		<td width="851">
+		<img id="holiday002" src="wide-header.jpg" width="851" height="71" alt="" style="display:block;" /> </td>
+
+		<td width="24"><img src="spacer.gif" width="24" alt="" style="display:block;" /> </td>
+	</tr>
+</table>
+<!--Message / full width column-->
+<table width="900" border="0" cellpadding="0" cellspacing="0" height="178">
+	<tr>
+		<td width="25"><img src="spacer.gif" width="25" alt="" style="display:block;" /> </td>
+
+		<td width="851" bgcolor="#FFFFFF" align="left" valign="top" style="padding-left: 14px; padding-right: 14px; padding-top: 4px; padding-bottom: 4px">
+			<p class="text" style="font-size:22px;">
+					<!--<font color="#800000">
+					<b>Dear Customer,</b>
+				</font><br /><br />-->
+					Ever wonder how Santa gets into your house without a chimney?<br />
+					<br />
+					Here's the secret: <font color="#800000"><strong>Santa's Magic Key</strong></font><br />
+					<br />
+					Just place it outside your door on Christmas Eve and he will use his magic to make it work!<br />
+					</p>
+					<!--Yours sincerely image and Name -->
+					<p align="right" class="padding" style="font-size:22px;">
+					<img border="0" src="greet.jpg" alt="Yours Sincerely" style="display:block;" />
+					Santa's Helper
+					</p>
+			</td>
+
+		<td width="24"><img src="spacer.gif" width="24" alt="" style="display:block;" /> </td>
+	</tr>
+</table>
+<!--Seperator-->
+<table width="900" border="0" cellpadding="0" cellspacing="0" height="35">
+	<tr>
+		<td width="25" height="35"><img src="spacer.gif" width="25" alt="" style="display:block;" /> </td>
+
+		<td width="851" bgcolor="#FFFFFF" height="35"><center><img id="holiday008" src="holiday-08.jpg" width="551" height="22" alt="" style="display:block;" /></center></td>
+
+		<td width="24" height="35"><img src="spacer.gif" width="24" alt="" style="display:block;" /> </td>
+	</tr>
+</table>
+<!--Buy-->
+<table width="900" border="0" cellpadding="0" cellspacing="0" height="35">
+	<tr>
+		<td width="25" height="35"><img src="spacer.gif" width="25" alt="" style="display:block;" /> </td>
+
+		<td width="851" bgcolor="#FFFFFF" height="35"><center><a href="#" class="buy" style="color:#ffffff;text-align:center;width:90%;">BUY NOW - $7 EACH - FREE SHIPPING</a></center></td>
+
+		<td width="24" height="35"><img src="spacer.gif" width="24" alt="" style="display:block;" /> </td>
+	</tr>
+</table>
+<!--Seperator-->
+<table width="900" border="0" cellpadding="0" cellspacing="0" height="35">
+	<tr>
+		<td width="25" height="35"><img src="spacer.gif" width="25" alt="" style="display:block;" /> </td>
+
+		<td width="851" bgcolor="#FFFFFF" height="35"><center><img id="holiday008" src="holiday-08.jpg" width="551" height="22" alt="" style="display:block;" /></center></td>
+
+		<td width="24" height="35"><img src="spacer.gif" width="24" alt="" style="display:block;" /> </td>
+	</tr>
+</table>
+<!--Images-->
+<table width="900" border="0" cellpadding="0" cellspacing="0" height="172">
+	<tr>
+		<td width="25"><img src="spacer.gif" width="25" alt="" style="display:block;" /> </td>
+		<td width="851" bgcolor="#FFFFFF" align="left" valign="top" height="119" style="padding-left: 14px; padding-right: 14px; padding-top: 4px; padding-bottom: 4px">
+			<!-- Slideshow container -->
+			<div class="slideshow-container">
+			  <!-- Full-width images with number and caption text -->
+			  <div class="mySlides fade">
+			    <div class="numbertext"></div>
+			    <img src="1.jpg" style="width:100%">
+			    <div class="text" style="text-align:center;color:#800000;font-size:24px;font-weight:bold;">Gold Key</div>
+			  </div>
+
+			  <div class="mySlides fade">
+			    <div class="numbertext"></div>
+			    <img src="2.jpg" style="width:100%">
+			    <div class="text" style="text-align:center;color:#800000;font-size:24px;font-weight:bold;">Silver Key</div>
+			  </div>
+
+			  <div class="mySlides fade">
+			    <div class="numbertext"></div>
+			    <img src="3.jpg" style="width:100%">
+			    <div class="text" style="text-align:center;color:#800000;font-size:24px;font-weight:bold;">Bronze Key</div>
+			  </div>
+
+			  <!-- Next and previous buttons -->
+			  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+			  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+			</div>
+			<br>
+
+			<!-- The dots/circles -->
+			<div style="text-align:center">
+			  <span class="dot" onclick="currentSlide(1)"></span>
+			  <span class="dot" onclick="currentSlide(2)"></span>
+			  <span class="dot" onclick="currentSlide(3)"></span>
+			</div>
+			</td>
+		<td width="24" ><img src="spacer.gif" width="24" alt="" style="display:block;" /> </td>
+	</tr>
+</table>
+<!--Disclaimer-->
+<table width="900" border="0" cellpadding="0" cellspacing="0" height="75">
+	<tr>
+		<td width="25"><img src="spacer.gif" width="25" alt="" style="display:block;" /> </td>
+
+		<td width="851" bgcolor="#FFFFFF" align="left" valign="top" height="75" style="padding-left: 14px; padding-right: 14px; padding-top: 4px; padding-bottom: 4px">
+			<center>
+			<br />
+			<p class="text" style="font-size:18px;text-align:center;">
+					<font color="#800000">
+					<b>Disclaimer</b>
+					</font><br /><br />
+					Items are handmade and will vary slightly. Ribbon subject to change. Key color option will be as ordered.<br />
+				</p></center>
+			</td>
+		<td width="24" ><img src="spacer.gif" width="24" alt="" style="display:block;" /> </td>
+	</tr>
+</table>
+<table width="900" border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td>
+			<img id="holiday_card008" src="Envelope-for-message.gif" width="25" height="552" alt="" style="display:block;" /> </td>
+		<td>
+			<img id="holiday_card002" src="Envelope-for-message-02.gif" width="851" height="552" alt="" style="display:block;" /> </td>
+		<td>
+			<img id="holiday_card009" src="Envelope-for-message-03.gif" width="24" height="552" alt="" style="display:block;" /> </td>
+	</tr>
+	</table>
+<!--bottom options-->
+<table width="600" border="0" cellpadding="0" cellspacing="0" height="40">
+	<tr>
+		<td class="options" width="551" align="center">
+			&#169; 2020 Charli's Parties. All rights reserved.
+		</td>
+	</tr>
+</table>
+
+
+		</td>
+	</tr>
+</table><!--Wraper ends-->
+
+<script type="text/javascript">
+var slideIndex = 1;
+showSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+}
+</script>
+</body>
+</html>

@@ -318,8 +318,10 @@ select {
                     } else {
                       QUANTITY = 1;
                     }
-
-                    var priceTotal = QUANTITY * selectedItemPrice;
+                    var shipping = 0;
+                    tax *= QUANTITY;
+                    tax = Math.round(tax * 100) / 100;
+                    var priceTotal = QUANTITY * selectedItemPrice + parseFloat(shipping) + tax;
                     priceTotal = Math.round(priceTotal * 100) / 100;
                     var itemTotalValue = Math.round((selectedItemPrice * QUANTITY) * 100) / 100;
 
@@ -329,7 +331,29 @@ select {
                               description: QUANTITY + ' x ' + selectedItemDescription + ' Magic Santa key(s)',
                               currency_code: 'USD',
                               value: priceTotal,
-                            }
+                              breakdown: {
+                                item_total: {
+                                  currency_code: 'USD',
+                                  value: itemTotalValue,
+                                },
+                                shipping: {
+                                  currency_code: 'USD',
+                                  value: shipping,
+                                },
+                                tax_total: {
+                                  currency_code: 'USD',
+                                  value: tax,
+                                }
+                              }
+                            },
+                            item: [{
+                              name: selectedItemDescription,
+                              unit_amount: {
+                                currency_code: 'USD',
+                                value: selectedItemPrice,
+                              },
+                              QUANTITY: QUANTITY
+                            }]
                         }]
                     });
                   },

@@ -317,7 +317,7 @@ select {
                     } else {
                       QUANTITY = 1;
                     }
-                    var priceTotal = QUANTITY * selectedItemPrice + parseFloat(shipping) + tax;
+                    var priceTotal = QUANTITY * selectedItemPrice;
                     priceTotal = Math.round(priceTotal * 100) / 100;
                     var itemTotalValue = Math.round((selectedItemPrice * QUANTITY) * 100) / 100;
 

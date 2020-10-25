@@ -132,6 +132,59 @@ body { background-color: #444444; margin: 0 0 0 0; padding: 0 0 0 0; } p.text {f
 }
 
 
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline: 0;
+  box-shadow: none;
+  border: 0 !important;
+  background: #800000;
+  background-image: none;
+}
+/* Remove IE arrow */
+select::-ms-expand {
+  display: none;
+}
+/* Custom Select */
+.select {
+  position: relative;
+  display: flex;
+  width: 91%;
+  height: 3em;
+  font-weight: bold;
+  line-height: 3;
+  background: #800000;
+  overflow: hidden;
+  border-radius: .25em;
+}
+select {
+  flex: 1;
+  font-weight: bold;
+  padding: 0 .5em;
+  color: #fff;
+  cursor: pointer;
+}
+/* Arrow */
+.select::after {
+  color:#FFFFFF;
+  content: '\25BC';
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0 1em;
+  background: #660000;
+  cursor: pointer;
+  pointer-events: none;
+  -webkit-transition: .25s all ease;
+  -o-transition: .25s all ease;
+  transition: .25s all ease;
+}
+/* Transition */
+.select:hover::after {
+  color: #CCCCCC;
+}
 
 </style>
 <!--Outer Wraper -->
@@ -173,14 +226,45 @@ body { background-color: #444444; margin: 0 0 0 0; padding: 0 0 0 0; } p.text {f
 					</p>
           <center><img id="holiday008" src="holiday-08.jpg" width="551" height="22" alt="" style="display:block;" /></center>
           <br />
-          <center><a href="#" class="buy" style="color:#ffffff;text-align:center;width:90%;">BUY NOW - $7 EACH - FREE USA SHIPPING</a></center>
+          <center>
+          </center>
           <div id="smart-button-container">
                 <div style="text-align: center;">
-                  <div style="margin-bottom: 1.25rem;">
-                    <p></p>
-                    <select id="item-options"><option value="Gold Key" price="7">Gold Key - 7 USD</option><option value="Silver Key" price="7">Silver Key - 7 USD</option><option value="Bronze Key" price="7">Bronze Key - 7 USD</option></select>
-                    <select style="visibility: hidden" id="quantitySelect"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option><option value="32">32</option><option value="33">33</option><option value="34">34</option><option value="35">35</option><option value="36">36</option><option value="37">37</option><option value="38">38</option><option value="39">39</option><option value="40">40</option><option value="41">41</option><option value="42">42</option><option value="43">43</option><option value="44">44</option><option value="45">45</option><option value="46">46</option><option value="47">47</option><option value="48">48</option><option value="49">49</option><option value="50">50</option></select>
+                  <center>
+                  <div style="margin-bottom: 1.25rem;" class="select">
+                    <select style="width:80%;" id="item-options">
+                      <option value="Gold Key" price="7">KEY COLOR: GOLD - $7 USD - FREE TRACKED USA SHIPPING</option>
+                      <option value="Silver Key" price="7">KEY COLOR: SILVER - $7 USD - FREE TRACKED USA SHIPPING</option>
+                      <option value="Bronze Key" price="7">KEY COLOR: BRONZE - $7 USD - FREE TRACKED USA SHIPPING</option>
+                    </select>
                   </div>
+                  </center>
+                  <center>
+                  <div style="margin-bottom: 1.25rem;" class="select">
+                    <select style="width:80%;" style="visibility: hidden" id="QUANTITYSelect">
+                      <option value="1">QUANTITY: 1</option>
+                      <option value="2">QUANTITY: 2</option>
+                      <option value="3">QUANTITY: 3</option>
+                      <option value="4">QUANTITY: 4</option>
+                      <option value="5">QUANTITY: 5</option>
+                      <option value="6">QUANTITY: 6</option>
+                      <option value="7">QUANTITY: 7</option>
+                      <option value="8">QUANTITY: 8</option>
+                      <option value="9">QUANTITY: 9</option>
+                      <option value="10">QUANTITY: 10</option>
+                      <option value="11">QUANTITY: 11</option>
+                      <option value="12">QUANTITY: 12</option>
+                      <option value="13">QUANTITY: 13</option>
+                      <option value="14">QUANTITY: 14</option>
+                      <option value="15">QUANTITY: 15</option>
+                      <option value="16">QUANTITY: 16</option>
+                      <option value="17">QUANTITY: 17</option>
+                      <option value="18">QUANTITY: 18</option>
+                      <option value="19">QUANTITY: 19</option>
+                      <option value="20">QUANTITY: 20</option>
+                    </select>
+                  </div>
+                  </center>
                 <div id="paypal-button-container"></div>
                 </div>
               </div>
@@ -189,19 +273,19 @@ body { background-color: #444444; margin: 0 0 0 0; padding: 0 0 0 0; } p.text {f
                 function initPayPalButton() {
                   var shipping = 0;
                   var itemOptions = document.querySelector("#smart-button-container #item-options");
-              var quantity = parseInt(50);
-              var quantitySelect = document.querySelector("#smart-button-container #quantitySelect");
-              if (!isNaN(quantity)) {
-                quantitySelect.style.visibility = "visible";
+              var QUANTITY = parseInt(50);
+              var QUANTITYSelect = document.querySelector("#smart-button-container #QUANTITYSelect");
+              if (!isNaN(QUANTITY)) {
+                QUANTITYSelect.style.visibility = "visible";
               }
-              var orderDescription = '';
+              var orderDescription = 'Magic Santa Key';
               if(orderDescription === '') {
                 orderDescription = 'Item';
               }
               paypal.Buttons({
                 style: {
                   shape: 'rect',
-                  color: 'white',
+                  color: 'silver',
                   layout: 'horizontal',
                   label: 'buynow',
 
@@ -210,17 +294,17 @@ body { background-color: #444444; margin: 0 0 0 0; padding: 0 0 0 0; } p.text {f
                   var selectedItemDescription = itemOptions.options[itemOptions.selectedIndex].value;
                   var selectedItemPrice = parseFloat(itemOptions.options[itemOptions.selectedIndex].getAttribute("price"));
                   var tax = (0 === 0) ? 0 : (selectedItemPrice * (parseFloat(0)/100));
-                  if(quantitySelect.options.length > 0) {
-                    quantity = parseInt(quantitySelect.options[quantitySelect.selectedIndex].value);
+                  if(QUANTITYSelect.options.length > 0) {
+                    QUANTITY = parseInt(QUANTITYSelect.options[QUANTITYSelect.selectedIndex].value);
                   } else {
-                    quantity = 1;
+                    QUANTITY = 1;
                   }
 
-                  tax *= quantity;
+                  tax *= QUANTITY;
                   tax = Math.round(tax * 100) / 100;
-                  var priceTotal = quantity * selectedItemPrice + parseFloat(shipping) + tax;
+                  var priceTotal = QUANTITY * selectedItemPrice + parseFloat(shipping) + tax;
                   priceTotal = Math.round(priceTotal * 100) / 100;
-                  var itemTotalValue = Math.round((selectedItemPrice * quantity) * 100) / 100;
+                  var itemTotalValue = Math.round((selectedItemPrice * QUANTITY) * 100) / 100;
 
                   return actions.order.create({
                     purchase_units: [{
@@ -249,7 +333,7 @@ body { background-color: #444444; margin: 0 0 0 0; padding: 0 0 0 0; } p.text {f
                           currency_code: 'USD',
                           value: selectedItemPrice,
                         },
-                        quantity: quantity
+                        QUANTITY: QUANTITY
                       }]
                     }]
                   });

@@ -254,14 +254,16 @@ select {
           <br />
           <center><div class="buy" style="color:#ffffff;text-align:center;width:91%;">$7 EACH - FREE TRACKED SHIPPING (USA ONLY)</div></center>
           <br />
+          <!-- Set up a container element for the button -->
+          <center>
           <div id="smart-button-container">
                 <div style="text-align: center;">
                   <center>
                   <div style="margin-bottom: 1.25rem;" class="select">
-                    <select style="width:80%;" id="item-options">
-                      <option value="Gold Key" price="7">KEY COLOR: GOLD</option>
-                      <option value="Silver Key" price="7">KEY COLOR: SILVER</option>
-                      <option value="Bronze Key" price="7">KEY COLOR: BRONZE</option>
+                    <select style="width:80%;" id="itemOptions">
+                      <option value="Gold" price="7">KEY COLOR: GOLD</option>
+                      <option value="Silver" price="7">KEY COLOR: SILVER</option>
+                      <option value="Bronze" price="7">KEY COLOR: BRONZE</option>
                     </select>
                   </div>
                   </center>
@@ -294,89 +296,57 @@ select {
                 <div id="paypal-button-container"></div>
                 </div>
               </div>
-              <script src="https://www.paypal.com/sdk/js?client-id=ASR_FY2xdJt25zcmoVJRUgHkd-nuBfoOO2qG8uFtI-c7p5cbDAq3R4VnwJjbjyszwPFJbWYFp_K5mILp&currency=USD" data-sdk-integration-source="button-factory"></script>
-              <script>
-                function initPayPalButton() {
-                  var shipping = 0;
-                  var itemOptions = document.querySelector("#smart-button-container #item-options");
-              var QUANTITY = parseInt(50);
-              var QUANTITYSelect = document.querySelector("#smart-button-container #QUANTITYSelect");
-              if (!isNaN(QUANTITY)) {
-                QUANTITYSelect.style.visibility = "visible";
-              }
-              var orderDescription = 'Magic Santa Key';
-              if(orderDescription === '') {
-                orderDescription = 'Item';
-              }
+              </center>
+          <!-- Include the PayPal JavaScript SDK -->
+          <script src="https://www.paypal.com/sdk/js?client-id=ASR_FY2xdJt25zcmoVJRUgHkd-nuBfoOO2qG8uFtI-c7p5cbDAq3R4VnwJjbjyszwPFJbWYFp_K5mILp&currency=USD"></script>
+          <center>
+          <script>
+              // Render the PayPal button into #paypal-button-container
               paypal.Buttons({
                 style: {
                   shape: 'rect',
                   color: 'silver',
-                  layout: 'horizontal',
-                  label: 'buynow',
-
                 },
-                createOrder: function(data, actions) {
-                  var selectedItemDescription = itemOptions.options[itemOptions.selectedIndex].value;
-                  var selectedItemPrice = parseFloat(itemOptions.options[itemOptions.selectedIndex].getAttribute("price"));
-                  var tax = (0 === 0) ? 0 : (selectedItemPrice * (parseFloat(0)/100));
-                  if(QUANTITYSelect.options.length > 0) {
-                    QUANTITY = parseInt(QUANTITYSelect.options[QUANTITYSelect.selectedIndex].value);
-                  } else {
-                    QUANTITY = 1;
+
+                  // Set up the transaction
+                  createOrder: function(data, actions) {
+                    var selectedItemDescription = itemOptions.options[itemOptions.selectedIndex].value;
+                    var selectedItemPrice = parseFloat(itemOptions.options[itemOptions.selectedIndex].getAttribute("price"));
+                    var tax = (0 === 0) ? 0 : (selectedItemPrice * (parseFloat(0)/100));
+                    if(QUANTITYSelect.options.length > 0) {
+                      QUANTITY = parseInt(QUANTITYSelect.options[QUANTITYSelect.selectedIndex].value);
+                    } else {
+                      QUANTITY = 1;
+                    }
+
+                    var priceTotal = QUANTITY * selectedItemPrice;
+                    priceTotal = Math.round(priceTotal * 100) / 100;
+                    var itemTotalValue = Math.round((selectedItemPrice * QUANTITY) * 100) / 100;
+
+                    return actions.order.create({
+                        purchase_units: [{
+                            amount: {
+                              description: QUANTITY + ' x ' + selectedItemDescription + ' Magic Santa key(s)',
+                              currency_code: 'USD',
+                              value: priceTotal,
+                            }
+                        }]
+                    });
+                  },
+
+                  // Finalize the transaction
+                  onApprove: function(data, actions) {
+                      return actions.order.capture().then(function(details) {
+                          // Show a success message to the buyer
+                          alert('Transaction completed by ' + details.payer.name.given_name + '!');
+                      });
                   }
 
-                  tax *= QUANTITY;
-                  tax = Math.round(tax * 100) / 100;
-                  var priceTotal = QUANTITY * selectedItemPrice + parseFloat(shipping) + tax;
-                  priceTotal = Math.round(priceTotal * 100) / 100;
-                  var itemTotalValue = Math.round((selectedItemPrice * QUANTITY) * 100) / 100;
 
-                  return actions.order.create({
-                    purchase_units: [{
-                      description: orderDescription,
-                      amount: {
-                        currency_code: 'USD',
-                        value: priceTotal,
-                        breakdown: {
-                          item_total: {
-                            currency_code: 'USD',
-                            value: itemTotalValue,
-                          },
-                          shipping: {
-                            currency_code: 'USD',
-                            value: shipping,
-                          },
-                          tax_total: {
-                            currency_code: 'USD',
-                            value: tax,
-                          }
-                        }
-                      },
-                      items: [{
-                        name: selectedItemDescription,
-                        unit_amount: {
-                          currency_code: 'USD',
-                          value: selectedItemPrice,
-                        },
-                        QUANTITY: QUANTITY
-                      }]
-                    }]
-                  });
-                },
-                onApprove: function(data, actions) {
-                  return actions.order.capture().then(function(details) {
-                    alert('Transaction completed by ' + details.payer.name.given_name + '!');
-                  });
-                },
-                onError: function(err) {
-                  console.log(err);
-                },
               }).render('#paypal-button-container');
-            }
-            initPayPalButton();
-              </script>
-              <br />
+          </script>
+          </center>
+          <br />
           <center>
     			<p class="text" style="font-size:18px;text-align:center;">
     					<font color="#800000">

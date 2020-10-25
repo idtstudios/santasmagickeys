@@ -261,9 +261,9 @@ select {
                   <center>
                   <div style="margin-bottom: 1.25rem;" class="select">
                     <select style="width:80%;" id="itemOptions">
-                      <option value="Gold" price="7">KEY COLOR: GOLD</option>
-                      <option value="Silver" price="7">KEY COLOR: SILVER</option>
-                      <option value="Bronze" price="7">KEY COLOR: BRONZE</option>
+                      <option value="Gold Key" price="7">KEY COLOR: GOLD</option>
+                      <option value="Silver Key" price="7">KEY COLOR: SILVER</option>
+                      <option value="Bronze Key" price="7">KEY COLOR: BRONZE</option>
                     </select>
                   </div>
                   </center>
@@ -312,49 +312,39 @@ select {
                   createOrder: function(data, actions) {
                     var selectedItemDescription = itemOptions.options[itemOptions.selectedIndex].value;
                     var selectedItemPrice = parseFloat(itemOptions.options[itemOptions.selectedIndex].getAttribute("price"));
-                    var tax = (0 === 0) ? 0 : (selectedItemPrice * (parseFloat(0)/100));
                     if(QUANTITYSelect.options.length > 0) {
                       QUANTITY = parseInt(QUANTITYSelect.options[QUANTITYSelect.selectedIndex].value);
                     } else {
                       QUANTITY = 1;
                     }
-                    var shipping = 0;
-                    tax *= QUANTITY;
-                    tax = Math.round(tax * 100) / 100;
                     var priceTotal = QUANTITY * selectedItemPrice + parseFloat(shipping) + tax;
                     priceTotal = Math.round(priceTotal * 100) / 100;
                     var itemTotalValue = Math.round((selectedItemPrice * QUANTITY) * 100) / 100;
 
                     return actions.order.create({
-                        purchase_units: [{
+                      purchase_units: [{
                             amount: {
-                              description: QUANTITY + ' x ' + selectedItemDescription + ' Magic Santa key(s)',
-                              currency_code: 'USD',
-                              value: priceTotal,
+                              value: itemTotalValue,
+                              currency_code: "USD",
                               breakdown: {
                                 item_total: {
-                                  currency_code: 'USD',
-                                  value: itemTotalValue,
+                                  currency_code: "USD",
+                                  value: itemTotalValue
                                 },
-                                shipping: {
-                                  currency_code: 'USD',
-                                  value: shipping,
-                                },
-                                tax_total: {
-                                  currency_code: 'USD',
-                                  value: tax,
-                                }
                               }
                             },
-                            item: [{
-                              name: selectedItemDescription,
-                              unit_amount: {
-                                currency_code: 'USD',
-                                value: selectedItemPrice,
+                            items: [
+                              {
+                                unit_amount: {
+                                  currency_code: "USD",
+                                  value: selectedItemPrice
+                                },
+                                quantity: QUANTITY,
+                                name: selectedItemDescription,
                               },
-                              QUANTITY: QUANTITY
-                            }]
-                        }]
+                            ],
+                          }
+                        ]
                     });
                   },
 

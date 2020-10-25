@@ -108,27 +108,18 @@ body { background-color: #444444; margin: 0 0 0 0; padding: 0 0 0 0; } p.text {f
 
 .buy {
 	box-shadow:inset 0px 1px 0px 0px #f5978e;
-	background:linear-gradient(to bottom, #f24437 5%, #990000 100%);
-	background-color:#f24437;
-	border-radius:6px;
-	border:1px solid #d02718;
+	background:linear-gradient(to bottom, #cc0000 5%, #770000 100%);
+	background-color:#800000;
+	border-radius:4px;
+	/*border:1px solid #d02718;*/
 	display:inline-block;
-	cursor:pointer;
 	color:#ffffff;
 	font-family:Arial;
 	font-size:24px;
 	font-weight:bold;
-	padding:6px 24px;
+	padding:10px 24px;
 	text-decoration:none;
 	text-shadow:0px 1px 0px #810e05;
-}
-.buy:hover {
-	background:linear-gradient(to bottom, #990000 5%, #f24437 100%);
-	background-color:#990000;
-}
-.buy:active {
-	position:relative;
-	top:1px;
 }
 
 
@@ -140,7 +131,7 @@ select {
   outline: 0;
   box-shadow: none;
   border: 0 !important;
-  background: #800000;
+  background: #aa0000;
   background-image: none;
 }
 /* Remove IE arrow */
@@ -155,13 +146,14 @@ select::-ms-expand {
   height: 3em;
   font-weight: bold;
   line-height: 3;
-  background: #800000;
+  background: #aa0000;
   overflow: hidden;
   border-radius: .25em;
 }
 select {
   flex: 1;
   font-weight: bold;
+  font-size: 24px;
   padding: 0 .5em;
   color: #fff;
   cursor: pointer;
@@ -225,17 +217,17 @@ select {
 					Santa's Helper
 					</p>
           <center><img id="holiday008" src="holiday-08.jpg" width="551" height="22" alt="" style="display:block;" /></center>
+
+          <center><div class="buy" style="color:#ffffff;text-align:center;width:91%;">$7 EACH - FREE TRACKED USA SHIPPING</div></center>
           <br />
-          <center>
-          </center>
           <div id="smart-button-container">
                 <div style="text-align: center;">
                   <center>
                   <div style="margin-bottom: 1.25rem;" class="select">
                     <select style="width:80%;" id="item-options">
-                      <option value="Gold Key" price="7">KEY COLOR: GOLD - $7 USD - FREE TRACKED USA SHIPPING</option>
-                      <option value="Silver Key" price="7">KEY COLOR: SILVER - $7 USD - FREE TRACKED USA SHIPPING</option>
-                      <option value="Bronze Key" price="7">KEY COLOR: BRONZE - $7 USD - FREE TRACKED USA SHIPPING</option>
+                      <option value="Gold Key" price="7">KEY COLOR: GOLD</option>
+                      <option value="Silver Key" price="7">KEY COLOR: SILVER</option>
+                      <option value="Bronze Key" price="7">KEY COLOR: BRONZE</option>
                     </select>
                   </div>
                   </center>
@@ -350,7 +342,6 @@ select {
             }
             initPayPalButton();
               </script>
-          <br />
           <center><img id="holiday008" src="holiday-08.jpg" width="551" height="22" alt="" style="display:block;" /></center>
           <br />
           <!-- Slideshow container -->
